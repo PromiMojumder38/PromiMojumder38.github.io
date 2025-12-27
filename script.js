@@ -1,38 +1,26 @@
-// Dark-mode toggle
-const setTheme = (t) => {
-  document.documentElement.setAttribute("data-theme", t);
-  localStorage.setItem("theme", t);
-  // Update button text
+// Theme handling
+const setTheme = (theme) => {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+
   const toggle = document.querySelector(".theme-toggle");
   if (toggle) {
-    toggle.textContent = t === "dark" ? "☀️ Light" : "🌙 Dark";
+    toggle.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
   }
 };
 
-const initTheme = () => {
-  const saved = localStorage.getItem("theme");
-  if (saved) return setTheme(saved);
+document.addEventListener("DOMContentLoaded", () => {
+  // Init theme
+  const savedTheme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  setTheme(prefersDark ? "dark" : "light");
-};
+  setTheme(savedTheme || (prefersDark ? "dark" : "light"));
 
-document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
+  // Toggle
+  document.querySelector(".theme-toggle")?.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    setTheme(current === "dark" ? "light" : "dark");
+  });
 
-  // Add theme toggle functionality
-  const themeToggle = document.querySelector(".theme-toggle");
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme");
-      setTheme(current === "dark" ? "light" : "dark");
-    });
-  }
-});
-
-// Set current year in footer
-document.addEventListener("DOMContentLoaded", () => {
-  const yearElement = document.getElementById("year");
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
 });
