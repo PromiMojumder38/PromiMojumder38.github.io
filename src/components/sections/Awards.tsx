@@ -68,7 +68,9 @@ export const Awards = () => (
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.45 }}
             whileHover={{ y: -6 }}
-            className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-400 aspect-video cursor-default"
+            onClick={() => item.link && window.open(item.link, '_blank', 'noopener')}
+            style={{ cursor: item.link ? 'pointer' : 'default' }}
+            className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-all duration-400 aspect-video"
           >
             {item.image ? (
               <img

@@ -10,18 +10,28 @@ export interface ContactResult {
   message: string;
 }
 
+// Get your free Formspree endpoint at https://formspree.io
+// Replace the ID below after creating a form at formspree.io/new
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
 export async function submitContact(payload: ContactPayload): Promise<ContactResult> {
-  const response = await fetch('/api/contact', {
+  const response = await fetch(FORMSPREE_ENDPOINT, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      name: payload.name,
+      email: payload.email,
+      subject: payload.subject,
+      message: payload.message,
+    }),
   });
 
-  const data = await response.json();
-
   if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong. Please try again.');
+    throw new Error('Failed to send message. Please try again or email me directly.');
   }
 
-  return data as ContactResult;
+  return {
+    success: true,
+    message: 'Thank you for reaching out! Your message has been sent successfully.',
+  };
 }

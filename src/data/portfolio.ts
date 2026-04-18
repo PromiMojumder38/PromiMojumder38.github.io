@@ -78,11 +78,25 @@ export const RESEARCH_WORK: Research[] = [
 
 export const PROJECTS: Project[] = [
   {
+    name: "Twitter / X Clone",
+    type: "ShellBeeHaken Ltd — Internship Project",
+    date: "Dec 2024 – May 2025",
+    tech: ["Next.js", "TypeScript", "MongoDB", "WebSockets", "OAuth", "Nodemailer"],
+    image: "/images/twitter-clone.png",
+    github: "https://github.com/PromiMojumder38/Twitter-Clone-Using-NextJS",
+    live: "https://twitter-clone-using-next-js.vercel.app/",
+    description: [
+      "Built a full-stack Twitter/X clone with real-time chat via WebSockets and Next.js App Router.",
+      "Integrated secure OAuth login, email/password auth, password reset, and email verification flows.",
+      "Implemented tweet feed, follow system, notifications, and responsive UI matching the X design.",
+    ],
+  },
+  {
     name: "Eco-Sync (DNCC Waste Management Website)",
     type: "Code Samurai Hackathon Project",
     date: "Mar 2024",
     tech: ["ReactJS", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
-    image: "https://picsum.photos/seed/ecosync/400/300",
+    image: "/images/EcoSync.png",
     github: "https://github.com/PromiMojumder38/eco-sync",
     youtube: "https://youtube.com/watch?v=example1",
     live: "https://eco-sync-demo.example.com",
@@ -96,10 +110,9 @@ export const PROJECTS: Project[] = [
     type: "University Third-year Project",
     date: "Nov 2023",
     tech: ["ReactJS", "CSS", "Node.js", "Express.js", "MySQL"],
-    image: "https://picsum.photos/seed/autorickshaw/400/300",
-    github: "https://github.com/PromiMojumder38/sust-auto",
-    youtube: "https://youtube.com/watch?v=example2",
-    live: "https://sust-auto.example.com",
+    image: "/images/sust-auto.png",
+    github: "https://github.com/PromiMojumder38/SUST_Autorickshaw_Management_System",
+    youtube: "https://youtu.be/nqDUCzSChFY",
     description: [
       "Automated SUST's auto-rickshaw management: registration, payment records, bill generation, and scheduling.",
       "Conducted document collection and requirement analysis.",
@@ -132,7 +145,7 @@ export const EDUCATION: Education[] = [
 
 export const ACHIEVEMENTS: Achievement[] = [
   { title: "Runner-up (400+ teams) in Preliminary Round 2, Finalist, Code Samurai Hackathon", image: "https://codesamuraibd.net/images/Navbar_Logo.png" },
-  { title: "2nd, BUP Project Showcasing", image: "/images/bup-showcase.jpg" },
+  { title: "2nd, BUP Project Showcasing", image: "/images/bup-showcase.jpg", link: "https://www.facebook.com/swesocietysust/posts/pfbid0dg5ErgaojE4isQgcLzxiU9cYyYza9dnrSG7jJ4ohy9PBqg6G5oyW5manAT8MwsDxl" },
   { title: "Top 10, DU ITverse Hackathon", image: "/images/du-hackthverse.jpg" },
   { title: "Top 14, ITverse Project Showcasing", image: "/images/du-itverse-showcasing.jpg" },
   {
@@ -176,6 +189,7 @@ export const ECA: ExtraCurricular[] = [
     title: "Executive Member, Shikorh, SUST",
     date: "2022 – Present",
     image: "/images/shikorh.jpg",
+    link: "https://www.facebook.com/photo.php?fbid=10158750339800756&set=pb.100045146748498.-2207520000&type=3",
   },
 ];
 

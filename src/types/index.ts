@@ -30,6 +30,7 @@ export interface ExtraCurricular {
   title: string;
   date?: string;
   image?: string;
+  link?: string;
 }
 
 export interface Education {
